@@ -1,0 +1,13 @@
+{{define "title"}}Notes{{end}}
+{{define "content"}}
+<p><a href="/notes/new">New note</a></p>
+{{if .Notes}}
+<ul>
+{{range .Notes}}
+<li><a href="/notes/{{.ID}}">{{.Title}}</a></li>
+{{end}}
+</ul>
+{{else}}
+<p>No notes yet.</p>
+{{end}}
+{{end}}
