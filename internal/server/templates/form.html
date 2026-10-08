@@ -1,0 +1,10 @@
+{{define "title"}}{{.Heading}}{{end}}
+{{define "content"}}
+<h2>{{.Heading}}</h2>
+{{with .Error}}<p role="alert">{{.}}</p>{{end}}
+<form method="post" action="{{.Action}}">
+<p><label>Title <input type="text" name="title" value="{{.Title}}"></label></p>
+<p><label>Body <textarea name="body" rows="10">{{.Body}}</textarea></label></p>
+<p><button type="submit">Save</button> <a href="{{.Cancel}}">Cancel</a></p>
+</form>
+{{end}}

@@ -1,0 +1,14 @@
+{{define "title"}}{{.Note.Title}}{{end}}
+{{define "content"}}
+<article>
+<h2>{{.Note.Title}}</h2>
+<pre>{{.Note.Body}}</pre>
+</article>
+<p>
+<a href="/notes/{{.Note.ID}}/edit">Edit</a>
+<a href="/notes">Back to all notes</a>
+</p>
+<form method="post" action="/notes/{{.Note.ID}}/delete">
+<button type="submit">Delete</button>
+</form>
+{{end}}
