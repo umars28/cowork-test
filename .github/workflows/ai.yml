@@ -53,6 +53,19 @@ jobs:
     uses: umars28/aiflow/.github/workflows/nightly.yml@main
     secrets: inherit
 
+  feature:
+    if: >-
+      github.event_name == 'issues' &&
+      github.event.label.name == 'ai-build'
+    permissions:
+      contents: write
+      issues: write
+      id-token: write
+    uses: umars28/aiflow/.github/workflows/feature.yml@main
+    with:
+      issue: ${{ github.event.issue.number }}
+    secrets: inherit
+
   fix:
     if: >-
       github.event_name == 'repository_dispatch' ||
